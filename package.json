@@ -4,22 +4,36 @@
   "main": "index.js",
   "author": "Alex Tikonoff",
   "license": "MIT",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "dependencies": {
+    "@material-ui/core": "^3.5.1",
+    "@material-ui/icons": "^3.0.1",
+    "eslint": "^5.6.0",
+    "isomorphic-fetch": "^2.2.1",
+    "prop-types": "latest",
+    "qrcode.react": "^0.8.0",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "react-scripts": "2.1.1"
+    "react-redux": "^5.1.1",
+    "react-router": "latest",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "enzyme": "latest",
-    "enzyme-adapter-react-16": "^1.2.0",
-    "eslint-config-standard": "^11.0.0",
+    "enzyme-adapter-react-16": "latest",
+    "eslint-config-standard": "latest",
     "eslint-plugin-fp": "latest",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "redux-immutable-state-invariant": "^2.1.0",
-    "standard": "^11.0.0"
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-node": "latest",
+    "eslint-plugin-promise": "latest",
+    "eslint-plugin-standard": "latest",
+    "redux-immutable-state-invariant": "latest",
+    "standard": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,34 +60,5 @@
       "__rewire_reset_all__"
     ],
     "parser": "babel-eslint"
-  },
-  "eslintConfig": {
-    "extends": "react-app",
-    "env": {
-      "es6": true
-    },
-    "plugins": [
-      "fp"
-    ],
-    "rules": {
-      "fp/no-arguments": "error",
-      "fp/no-class": "error",
-      "fp/no-delete": "error",
-      "fp/no-events": "error",
-      "fp/no-get-set": "error",
-      "fp/no-let": "error",
-      "fp/no-loops": "error",
-      "fp/no-mutating-assign": "error",
-      "fp/no-mutating-methods": "error",
-      "fp/no-mutation": "error",
-      "fp/no-nil": "error",
-      "fp/no-proxy": "error",
-      "fp/no-rest-parameters": "error",
-      "fp/no-this": "error",
-      "fp/no-throw": "error",
-      "fp/no-unused-expression": "error",
-      "fp/no-valueof-field": "error",
-      "no-var": "error"
-    }
   }
 }
