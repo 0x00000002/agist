@@ -4,6 +4,6 @@ import * as index from './index'
 
 describe('ducks.index', function () {
   it('should export functions', function () {
-    expect(Object.keys(index)).toEqual(['session', 'user', 'transfer'])
+    expect(Object.keys(index)).toEqual(['user'])
   })
 })
