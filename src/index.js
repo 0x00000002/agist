@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import { Provider as ReduxProvider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import App from './containers/App'
 import configureStore from './state/store'
 import { errors } from './settings'
@@ -15,7 +15,7 @@ ReactDOM.render(
   <ErrorBoundary reason={errors.others}>
     <ReduxProvider store={reduxStore}>
       <BrowserRouter>
-        <App />
+        <Route path='/*' component={App} />
       </BrowserRouter>
     </ReduxProvider>
   </ErrorBoundary>,

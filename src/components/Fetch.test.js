@@ -1,6 +1,5 @@
-// import 'jsdom-global/register'
 import React from 'react'
-import { View, firstPathSegment } from './View'
+import { gistAddress } from './Fetch'
 import { shallow } from 'enzyme'
 
 const props = {
@@ -11,7 +10,7 @@ const props = {
 
 describe('components/View', function () {
   it('should extract permalink from URI', function () {
-    expect(firstPathSegment('/test')).toEqual('test')
+    expect(gistAddress('/test')).toEqual('test')
   })
 
   it('should contain gist name', async function () {

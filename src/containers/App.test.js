@@ -1,12 +1,38 @@
-// import 'jsdom-global/register'
-import React from 'react'
-import App from './App'
-import ReactDOM from 'react-dom'
+'use strict'
 
-describe('App routing', function () {
-  it('renders without crashing', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(<App />, div)
-    ReactDOM.unmountComponentAtNode(div)
+import { connect } from 'react-redux'
+import Main, { mapStateToProps, mapDispatchToProps } from './Main'
+
+jest.mock('react-redux', () => ({
+  connect: jest
+    .fn()
+    .mockReturnValue(jest.fn().mockReturnValue({ component: 'fake-component' }))
+}))
+
+describe('containers.Dashboard', function () {
+  describe('mapStateToProps', function () {
+    it('should return a remapped state', function () {
+      expect(
+        mapStateToProps({ user: 'fake-user' })
+      ).toEqual({ user: 'fake-user' })
+    })
+  })
+
+  describe('mapDispatchToProps', function () {
+    it('should return a remapped dispatches', function () {
+      expect(Object.keys(mapDispatchToProps)).toEqual([
+        'userFetch'
+      ])
+    })
+  })
+
+  describe('Main', function () {
+    it('should return a connected component', function () {
+      expect(connect.mock.calls[0]).toEqual([
+        mapStateToProps,
+        mapDispatchToProps
+      ])
+      expect(Main).toEqual({ component: 'fake-component' })
+    })
   })
 })

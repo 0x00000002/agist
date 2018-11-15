@@ -1,18 +1,13 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import ErrorBoundary, { errors } from '../errorBoundary'
-import Main from './Main'
-import View from './View'
-import pageNotFound from '../components/pageNotFound'
+import { connect } from 'react-redux'
+import App from '../components/App'
+import { userOperations } from '../state/ducks/user'
 
-const App = () => (
-  <ErrorBoundary reason={errors.others}>
-    <Switch>
-      <Route path='/' exact component={Main} />
-      <Route path='/*' component={View} />
-      <Route component={pageNotFound} />
-    </Switch>
-  </ErrorBoundary>
-)
+export const mapStateToProps = state => ({
+  user: state.user,
+})
 
-export default App
+export const mapDispatchToProps = {
+  userFetch: userOperations.userFetch
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

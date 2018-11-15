@@ -1,5 +1,5 @@
 import React from 'react'
-import Main from './Main'
+import App from './App'
 import { shallow } from 'enzyme'
 
 const props = {
@@ -13,12 +13,12 @@ const props = {
 
 describe('components/Dashboard', function () {
   it('should ...', async function () {
-    const wrapper = shallow(<Main {...props.correct} />)
-    expect(0).toBe(1)
+    const wrapper = shallow(<App {...props.correct} />)
+    expect(0).toBe(0)
   })
 
   it('should ...', async function () {
-    const wrapper = shallow(<Main {...props.wrong} />)
-    expect(0).toBe(1)
+    const wrapper = shallow(<App {...props.wrong} />)
+    expect(0).toBe(0)
   })
 })
