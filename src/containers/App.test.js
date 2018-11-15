@@ -1,7 +1,7 @@
 'use strict'
 
 import { connect } from 'react-redux'
-import Main, { mapStateToProps, mapDispatchToProps } from './Main'
+import App, { mapStateToProps, mapDispatchToProps } from './App'
 
 jest.mock('react-redux', () => ({
   connect: jest
@@ -32,7 +32,7 @@ describe('containers.Dashboard', function () {
         mapStateToProps,
         mapDispatchToProps
       ])
-      expect(Main).toEqual({ component: 'fake-component' })
+      expect(App).toEqual({ component: 'fake-component' })
     })
   })
 })

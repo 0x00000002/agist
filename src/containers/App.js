@@ -3,7 +3,7 @@ import App from '../components/App'
 import { userOperations } from '../state/ducks/user'
 
 export const mapStateToProps = state => ({
-  user: state.user,
+  user: state.user
 })
 
 export const mapDispatchToProps = {

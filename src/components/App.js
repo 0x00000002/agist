@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Code from './Code'
-import ErrorBoundary, { errors } from '../errorBoundary'
+import ErrorBoundary, { errors } from '../helpers/errorBoundary'
 import gistAddress from './Fetch'
 
 class App extends Component {

@@ -1,4 +1,3 @@
-// import 'jsdom-global/register'
 import React from 'react'
 import Code from './Code'
 import { shallow } from 'enzyme'

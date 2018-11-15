@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { errors } from '../settings'
-import ErrorBoundary from '../errorBoundary'
+import errors from '../settings/errorHandling'
+import ErrorBoundary from '../helpers/errorBoundary'
 import CodeMirror from 'react-codemirror'
 require('codemirror/mode/javascript/javascript')
 require('codemirror/mode/xml/xml')

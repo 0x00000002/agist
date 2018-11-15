@@ -6,8 +6,8 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import App from './containers/App'
 import configureStore from './state/store'
 import { errors } from './settings'
-import ErrorBoundary from './errorBoundary'
-import * as serviceWorker from './serviceWorker'
+import ErrorBoundary from './helpers/errorBoundary'
+import * as serviceWorker from './helpers/serviceWorker'
 
 const reduxStore = configureStore()
 
