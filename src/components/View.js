@@ -6,8 +6,7 @@ const R = require('ramda')
 
 export const firstPathSegment = R.compose(R.nth(1), R.split('/')) // element 0 is empty after split ('/URI')
 
-export const View = (props) => {
-  const path = props.location.pathname
+export const View = ({ location: { pathname: path } }) => {
   const permalink = firstPathSegment(path)
 
   return (

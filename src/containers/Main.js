@@ -7,7 +7,7 @@ export const mapStateToProps = state => ({
 })
 
 export const mapDispatchToProps = {
-  userFetch: userOperations.userFetch,
+  userFetch: userOperations.userFetch
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main)

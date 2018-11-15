@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
+import Code from './Code'
 
 class Main extends Component {
   render () {
     return (
-      <header>
+      <div>
         <h1>Create A Gist</h1>
-      </header>
+        <Code theCode={'/* ES5 highlighting only */'} />
+      </div>
     )
   }
 }

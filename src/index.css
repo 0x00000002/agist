@@ -10,11 +10,11 @@ body {
 }
 
 header {
-  padding: 20px;
   background-color: #123;
 }
 
 h1 {
+  padding: 10px 0px 15px 30px;
   font-family: "Ubuntu", sans-serif;
   color: #fff;
 }
@@ -33,4 +33,9 @@ code {
   font-family: 'Ubuntu Mono', monospace;
   padding: 20px;
   color: #fff;
+}
+
+main {
+  padding: 20px;
+  font-family: 'Ubuntu Mono', monospace;
 }
