@@ -3,6 +3,7 @@
   "description": "My version of Gist in Javascript with IPFS",
   "main": "index.js",
   "author": "Alex Tikonoff",
+  "homepage": "http://tikonoff.github.io/agist",
   "license": "MIT",
   "eslintConfig": {
     "extends": "react-app"
@@ -37,6 +38,7 @@
     "eslint-plugin-node": "latest",
     "eslint-plugin-promise": "latest",
     "eslint-plugin-standard": "latest",
+    "gh-pages": "^2.0.1",
     "redux-immutable-state-invariant": "latest",
     "standard": "latest"
   },
@@ -44,7 +46,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": [
     ">0.2%",

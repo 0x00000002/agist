@@ -3,7 +3,6 @@ const R = require('ramda')
 function handleErrors (response) {
   const tryer = (response) => Boolean(response.ok)
   const catcher = (response) => { throw Error(response.statusText) }
-
   R.tryCatch(tryer, catcher)(response)
 }
 

@@ -1,3 +1,4 @@
+
 const R = require('ramda')
 
 const getFirstSegment = R.compose(R.nth(1), R.split('/')) // element 0 is empty after split ('/URI')
