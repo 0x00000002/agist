@@ -22,37 +22,4 @@ if (process.env.NODE_ENV === 'production') {
   }
 }
 
-// Possibly funny list of possible error messages
-export const errors = {
-  codeMirror: [
-    'External plugin CodeMirror made a HUGE mistake.',
-    'CodeMirror reflects nothing!'
-  ],
-  // message(s) for wrong error reason
-  _wrong: [
-    'Really sad, but there is an error in the error message. Sorry.'
-  ]
-}
-
-export const messages = {
-  // message(s) for wrong error reason
-  _wrong: [
-    'Really sad, but there is an error in the error message. Sorry.'
-  ]
-}
-
-export function displayMessage (message = 'others') {
-  return displayRandomMessageFromArray(messages, message)
-}
-
-export function displayError (reason = 'others') {
-  return displayRandomMessageFromArray(errors, reason)
-}
-
-function displayRandomMessageFromArray (list, type) {
-  const messages = list[type] || list['_wrong']
-  const random = Math.floor(Math.random() * Math.floor(messages.length))
-  return messages[random]
-}
-
 export default settings

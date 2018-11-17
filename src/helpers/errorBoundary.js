@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { displayError } from '../settings/index'
+import displayError from './errorHandling'
 
 export default class ErrorBoundary extends Component {
   constructor (props) {
@@ -34,5 +34,3 @@ export default class ErrorBoundary extends Component {
     return this.props.children
   }
 }
-
-export { errors } from '../settings/index'

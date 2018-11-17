@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Code from './Code'
 import Header from './Header'
-import ErrorBoundary, { errors } from '../helpers/errorBoundary'
+import ErrorBoundary from '../helpers/errorBoundary'
+import errors from '../helpers/errorHandling'
 
 class App extends Component {
   saveFunc = () => console.log(this.state.code + ' saved')

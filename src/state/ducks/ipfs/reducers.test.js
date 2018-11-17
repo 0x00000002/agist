@@ -19,37 +19,37 @@ describe('ipfs.reducers', function () {
       expect(ipfsReducer).toEqual('fake-reducer')
       expect(createReducer.mock.calls[0][0]).toEqual(null)
       expect(Object.keys(createReducer.mock.calls[0][1])).toEqual([
-        'ipfs/IPFS_FETCH_COMPLETED',
-        'ipfs/IPFS_SETUP_COMPLETED',
-        'ipfs/IPFS_UPDATE_COMPLETED',
-        'ipfs/IPFS_GETADDRESS_COMPLETED'
+        'IPFS_FETCH_COMPLETED',
+        'IPFS_SETUP_COMPLETED',
+        'IPFS_UPDATE_COMPLETED',
+        'IPFS_GETADDRESS_COMPLETED'
       ])
     })
 
     it('should support IPFS_FETCH_COMPLETED', function () {
       expect(
-        createReducer.mock.calls[0][1]['ipfs/IPFS_FETCH_COMPLETED']({}, {
+        createReducer.mock.calls[0][1]['IPFS_FETCH_COMPLETED']({}, {
           payload: 'fake-payload'
         })
       ).toEqual('fake-payload')
     })
     it('should support IPFS_SETUP_COMPLETED', function () {
       expect(
-        createReducer.mock.calls[0][1]['ipfs/IPFS_SETUP_COMPLETED']({}, {
+        createReducer.mock.calls[0][1]['IPFS_SETUP_COMPLETED']({}, {
           payload: 'fake-payload'
         })
       ).toEqual('fake-payload')
     })
     it('should support IPFS_UPDATE_COMPLETED', function () {
       expect(
-        createReducer.mock.calls[0][1]['ipfs/IPFS_UPDATE_COMPLETED']({}, {
+        createReducer.mock.calls[0][1]['IPFS_UPDATE_COMPLETED']({}, {
           payload: 'fake-payload'
         })
       ).toEqual('fake-payload')
     })
     it('should support IPFS_GETADDRESS_COMPLETED', function () {
       expect(
-        createReducer.mock.calls[0][1]['ipfs/IPFS_GETADDRESS_COMPLETED']({}, {
+        createReducer.mock.calls[0][1]['IPFS_GETADDRESS_COMPLETED']({}, {
           payload: 'fake-payload'
         })
       ).toEqual('fake-payload')

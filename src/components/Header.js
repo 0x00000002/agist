@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import errors from '../settings/errorHandling'
+import errors from '../helpers/errorHandling'
 import ErrorBoundary from '../helpers/errorBoundary'
 
 const Header = ({ gist: header = 'new', code, saver }) => {
