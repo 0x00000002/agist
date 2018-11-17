@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/agist/static/js/runtime~main.e05b892c.js"
   },
   {
-    "revision": "075347ee9a7aa41a0cb4",
-    "url": "/agist/static/js/main.075347ee.chunk.js"
+    "revision": "cb86b35dc2cbdebc9f42",
+    "url": "/agist/static/js/main.cb86b35d.chunk.js"
   },
   {
     "revision": "0e9f99f8da69bac79574",
     "url": "/agist/static/js/1.0e9f99f8.chunk.js"
   },
   {
-    "revision": "075347ee9a7aa41a0cb4",
+    "revision": "cb86b35dc2cbdebc9f42",
     "url": "/agist/static/css/main.038fc69d.chunk.css"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/agist/static/css/1.19470d9f.chunk.css"
   },
   {
-    "revision": "7ee20f6af39b5a6816b1fde9d39b39fc",
+    "revision": "4ede6eee4c4e6df9133dc64e578530a4",
     "url": "/agist/index.html"
   }
 ];
