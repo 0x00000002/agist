@@ -7,7 +7,10 @@ export const mapStateToProps = state => ({
 })
 
 export const mapDispatchToProps = {
-  ipfsFetch: ipfsOperations.ipfsFetch
+  gistGetAddress: ipfsOperations.gistGetAddress,
+  ipfsFetch: ipfsOperations.ipfsFetch,
+  ipfsUpdate: ipfsOperations.ipfsUpdate,
+  ipfsSetup: ipfsOperations.ipfsSetup
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

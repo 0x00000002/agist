@@ -26,7 +26,7 @@ const Code = ({ code = '/* ES5 highlighting only */', handler }) => {
 }
 
 Code.propTypes = {
-  code: PropTypes.string.isRequired
+  code: PropTypes.string
 }
 
 export default Code

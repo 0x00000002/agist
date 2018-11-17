@@ -21,7 +21,10 @@ describe('containers.Dashboard', function () {
   describe('mapDispatchToProps', function () {
     it('should return a remapped dispatches', function () {
       expect(Object.keys(mapDispatchToProps)).toEqual([
-        'ipfsFetch'
+        'gistGetAddress',
+        'ipfsFetch',
+        'ipfsUpdate',
+        'ipfsSetup'
       ])
     })
   })

@@ -5,18 +5,24 @@ import * as types from './types'
 
 describe('ipfs.actions', function () {
   it('should export functions', function () {
-    expect(Object.keys(actions)).toEqual(['ipfsFetch', 'ipfsSetup', 'ipfsUpdate'])
+    expect(Object.keys(actions)).toEqual([
+      'ipfsFetch',
+      'ipfsSetup',
+      'ipfsUpdate',
+      'gistGetAddress'
+    ])
   })
 
   describe('ipfsFetch', function () {
     it('should return a IPFS_FETCH action', function () {
-      expect(actions.ipfsFetch()).toEqual({
+      expect(actions.ipfsFetch('fake-address')).toEqual({
         type: types.IPFS_FETCH,
         meta: {
           async: true,
           blocking: true,
           path: '/ipfs',
           method: 'GET',
+          body: { address: 'fake-address' }
         }
       })
     })
@@ -32,7 +38,7 @@ describe('ipfs.actions', function () {
           path: '/ipfs/setup',
           method: 'PUT',
           body: {
-            'gist': 'fake-ipfs-token'
+            'address': 'fake-ipfs-token'
           }
         }
       })
@@ -41,7 +47,7 @@ describe('ipfs.actions', function () {
 
   describe('ipfsUpdate', function () {
     it('should return a IPFS_FETCH action', function () {
-      expect(actions.ipfsUpdate('fake-code')).toEqual({
+      expect(actions.ipfsUpdate('fake-address', 'fake-code')).toEqual({
         type: types.IPFS_UPDATE,
         meta: {
           async: true,
@@ -49,6 +55,7 @@ describe('ipfs.actions', function () {
           path: '/ipfs/update',
           method: 'PUT',
           body: {
+            'address': 'fake-address',
             'code': 'fake-code'
           }
         }

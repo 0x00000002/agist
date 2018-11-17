@@ -1,3 +1,3 @@
-import { ipfsFetch, ipfsSetup, ipfsUpdate } from './actions'
+import { ipfsFetch, ipfsSetup, ipfsUpdate, gistGetAddress } from './actions'
 
-export { ipfsFetch, ipfsSetup, ipfsUpdate }
+export { ipfsFetch, ipfsSetup, ipfsUpdate, gistGetAddress }

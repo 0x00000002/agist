@@ -1,15 +1,19 @@
 import React from 'react'
 import App from './App'
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
 
 const props = {
   correct: {
     location: {
       pathname: '/test-path'
-    }
+    },
+    gistGetAddress: jest.fn(),
+    ipfsFetch: jest.fn()
   },
   wrong: {
-    location: ''
+    location: '',
+    gistGetAddress: jest.fn(),
+    ipfsFetch: jest.fn()
   }
 }
 
