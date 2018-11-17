@@ -8,7 +8,7 @@ const Header = ({ gist: header = 'new', code, saver }) => {
     <ErrorBoundary reason={errors.header}>
       <h1>Gist <span className={'gistName'}>{header}</span></h1>
       <button
-        onClick={(e) => saver(e)}
+        onClick={(code) => saver(code)}
       >Save</button>
     </ErrorBoundary>
   )

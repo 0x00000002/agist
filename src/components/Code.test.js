@@ -3,7 +3,7 @@ import Code from './Code'
 import { shallow } from 'enzyme'
 
 const testProps = {
-  theCode: 'test code'
+  code: 'test code'
 }
 
 describe('components/Code', function () {

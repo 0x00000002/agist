@@ -19,7 +19,7 @@ const Code = ({ code = '/* ES5 highlighting only */', handler }) => {
       <CodeMirror
         value={code}
         options={options}
-        onChange={handler}
+        onChange={(code) => handler(code)}
       />
     </ErrorBoundary>
   )
