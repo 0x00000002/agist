@@ -23,7 +23,8 @@
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
     "redux-bundler": "^22.2.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sanctuary": "^0.15.0"
   },
   "devDependencies": {
     "enzyme": "latest",

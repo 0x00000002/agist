@@ -14,7 +14,7 @@ const reduxStore = configureStore()
 ReactDOM.render(
   <ErrorBoundary reason={errors.others}>
     <ReduxProvider store={reduxStore}>
-      <BrowserRouter >
+      <BrowserRouter basename={'/agist/'}>
         <Route path='/*' component={App} />
       </BrowserRouter>
     </ReduxProvider>

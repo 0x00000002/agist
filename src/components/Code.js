@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import errors from '../settings/errorHandling'
 import ErrorBoundary from '../helpers/errorBoundary'
@@ -13,24 +13,16 @@ const options = {
   mode: 'javascript'
 }
 
-class Code extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      code: this.props.code || '/* ES5 highlighting only */'
-    }
-  }
-
-  render () {
-    return (
-      <ErrorBoundary reason={errors.codeMirror}>
-        <CodeMirror
-          value={this.state.code}
-          options={options}
-        />
-      </ErrorBoundary>
-    )
-  }
+const Code = ({ code = '/* ES5 highlighting only */', handler }) => {
+  return (
+    <ErrorBoundary reason={errors.codeMirror}>
+      <CodeMirror
+        value={code}
+        options={options}
+        onChange={handler}
+      />
+    </ErrorBoundary>
+  )
 }
 
 Code.propTypes = {

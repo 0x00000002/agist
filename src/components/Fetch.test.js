@@ -1,12 +1,4 @@
-import React from 'react'
-import gistAddress from './Fetch'
-import { shallow } from 'enzyme'
-
-const props = {
-  location: {
-    pathname: '/fakeLink'
-  }
-}
+import { gistAddress } from './Fetch'
 
 describe('components/Fetch', function () {
   it('should extract permalink from URI', function () {

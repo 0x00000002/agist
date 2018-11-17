@@ -8,8 +8,12 @@ function handleErrors (response) {
 
 const errors = { // Possibly funny list of possible error messages
   codeMirror: [
-    'External plugin CodeMirror made a HUGE mistake.',
+    'External plugin CodeMirror made a HUGE mistake',
     'CodeMirror reflects nothing!'
+  ],
+  header: [
+    'No header today',
+    'Save buttons are missed'
   ],
   _wrong: [ // error(s) for wrong error reason
     'Really sad, but there is an error in the error message. Sorry.'
