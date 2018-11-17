@@ -13,20 +13,20 @@ describe('containers.Dashboard', function () {
   describe('mapStateToProps', function () {
     it('should return a remapped state', function () {
       expect(
-        mapStateToProps({ user: 'fake-user' })
-      ).toEqual({ user: 'fake-user' })
+        mapStateToProps({ ipfs: 'fake-ipfs' })
+      ).toEqual({ ipfs: 'fake-ipfs' })
     })
   })
 
   describe('mapDispatchToProps', function () {
     it('should return a remapped dispatches', function () {
       expect(Object.keys(mapDispatchToProps)).toEqual([
-        'userFetch'
+        'ipfsFetch'
       ])
     })
   })
 
-  describe('Main', function () {
+  describe('App', function () {
     it('should return a connected component', function () {
       expect(connect.mock.calls[0]).toEqual([
         mapStateToProps,

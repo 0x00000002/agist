@@ -8,27 +8,33 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      code: ''
+      code: '',
+      gist: ''
     }
   }
 
-  saveFunc = () => {
-    console.log(this.state.code + ' saved')
+  saveFunc = () => console.log(this.state.code + ' saved')
+  handleChange = (code) => this.setState({ code })
+
+  async getData () {
+    const pathname = this.props && this.props.location && this.props.location.pathname
+    const gist = await gistAddress(pathname)
+    const code = await fetchCode(gist)
+    this.setState({ gist, code })
   }
 
-  handleChange = (code) => {
-    this.setState({ code })
+  componentDidMount () {
+    this.getData()
   }
 
   render () {
-    const pathname = this.props && this.props.location && this.props.location.pathname
-    const gist = gistAddress(pathname)
-    const code = fetchCode(gist)
-
+    const { gist, code } = this.state
+    const componentReady = gist && code
     return (
       <ErrorBoundary reason={errors.others}>
-        <Header gist={gist} code={code} saver={this.saveFunc} />
-        <Code code={code} handler={this.handleChange} />
+        { !componentReady && <div>Loading Data...</div> }
+        { componentReady && <Header gist={gist} code={code} saver={this.saveFunc} /> }
+        { componentReady && <Code code={code} handler={this.handleChange} /> }
       </ErrorBoundary>
     )
   }

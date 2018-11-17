@@ -1,13 +1,13 @@
 import { connect } from 'react-redux'
 import App from '../components/App'
-import { userOperations } from '../state/ducks/user'
+import { ipfsOperations } from '../state/ducks/ipfs'
 
 export const mapStateToProps = state => ({
-  user: state.user
+  ipfs: state.ipfs
 })
 
 export const mapDispatchToProps = {
-  userFetch: userOperations.userFetch
+  ipfsFetch: ipfsOperations.ipfsFetch
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
