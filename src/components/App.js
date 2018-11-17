@@ -5,6 +5,7 @@ import gistAddress from './Fetch'
 
 class App extends Component {
   render () {
+    debugger
     const gist = gistAddress(this.props.location.pathname)
 
     return (
