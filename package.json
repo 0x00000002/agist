@@ -9,8 +9,6 @@
     "extends": "react-app"
   },
   "dependencies": {
-    "@material-ui/core": "^3.5.1",
-    "@material-ui/icons": "^3.0.1",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "latest",
     "ramda": "^0.25.0",
