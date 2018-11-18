@@ -20,22 +20,22 @@ describe('ipfs.actions', function () {
         meta: {
           async: true,
           blocking: true,
-          path: '/data/testAuthentication',
+          path: '/api/v0/get',
           method: 'GET',
-          body: { address: 'fake-address' }
+          body: { arg: 'fake-address' }
         }
       })
     })
   })
 
   describe('ipfsSetup', function () {
-    it('should return a IPFS_FETCH action', function () {
+    it('should return a IPFS_SETUP action', function () {
       expect(actions.ipfsSetup()).toEqual({
         type: types.IPFS_SETUP,
         meta: {
           async: true,
           blocking: true,
-          path: '/data/testAuthentication',
+          path: '/api/v0/version',
           method: 'GET'
         }
       })
@@ -43,17 +43,16 @@ describe('ipfs.actions', function () {
   })
 
   describe('ipfsUpdate', function () {
-    it('should return a IPFS_FETCH action', function () {
+    it('should return a IPFS_UPDATE action', function () {
       expect(actions.ipfsUpdate('fake-address', 'fake-code')).toEqual({
         type: types.IPFS_UPDATE,
         meta: {
           async: true,
           blocking: true,
-          path: '/pinning/pinFileToIPFS',
+          path: '/api/v0/add',
           method: 'POST',
           body: {
-            'address': 'fake-address',
-            'code': 'fake-code'
+            'arg': 'fake-address',
           }
         }
       })
