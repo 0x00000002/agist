@@ -5,7 +5,7 @@ import ErrorBoundary from '../helpers/errorBoundary'
 import errors from '../helpers/errorHandling'
 
 class App extends Component {
-  saveFunc = () => console.log(this.state.code + ' saved')
+  saveFunc = () => this.props.ipfsUpdate(this.state.code)
   handleChange = (code) => this.setState({ code })
 
   async componentDidMount () {
@@ -15,15 +15,13 @@ class App extends Component {
   render () {
     const { ipfs, ipfsSetup, ipfsFetch } = this.props
     const data = ipfs && ipfs.data
-    const componentReady = Boolean(data)
-
-    if (!componentReady) return false
+    const componentReady = Boolean(data !== undefined)
 
     const gist = data && data.address
     const code = data && data.code
 
     gist === '' && ipfsSetup()
-    gist !== '' && ipfsFetch(gist)
+    gist && ipfsFetch(gist)
 
     return (
       <ErrorBoundary reason={errors.others}>

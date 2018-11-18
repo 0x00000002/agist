@@ -11,9 +11,11 @@ export const ipfsFetch = (address) => ({
   meta: {
     async: true,
     blocking: true,
-    path: '/api/v0/get',
+    path: `/api/v0/get?arg=${address}`,
     method: 'GET',
-    body: { arg:address }
+  },
+  payload: {
+    address
   }
 })
 
@@ -33,8 +35,11 @@ export const ipfsUpdate = (code) => ({
     async: true,
     blocking: true,
     path: '/api/v0/add',
-    method: 'POST',
-    body: { arg: code }
+    method: 'POST'
+    // body: { arg: code }
+  },
+  payload: {
+    code
   }
 })
 

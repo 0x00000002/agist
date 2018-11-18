@@ -12,10 +12,11 @@ const apiService = () => next => action => {
     throw new Error(`'path' not specified for async action ${action.type}`)
   }
 
-  const url = `http://localhost:5001${path}`
+  // ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
+  const url = `http://127.0.0.1:5001${path}`
 
   const headers = {
-    // Authorization: auth
+    Authorization: auth
   }
 
   return fetch(url, method, body, headers).then(
