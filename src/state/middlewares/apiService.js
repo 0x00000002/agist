@@ -12,10 +12,10 @@ const apiService = () => next => action => {
     throw new Error(`'path' not specified for async action ${action.type}`)
   }
 
-  const url = ``
+  const url = `http://localhost:5001${path}`
 
   const headers = {
-    Authorization: auth
+    // Authorization: auth
   }
 
   return fetch(url, method, body, headers).then(

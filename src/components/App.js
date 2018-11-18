@@ -8,30 +8,22 @@ class App extends Component {
   saveFunc = () => console.log(this.state.code + ' saved')
   handleChange = (code) => this.setState({ code })
 
-  // async getData () {
-  //   const pathname = this.props && this.props.location && this.props.location.pathname
-  //   const gist = await gistAddress(pathname)
-  //   const code = await fetchCode(gist)
-  //   this.setState({ gist, code })
-  // }
-
-  componentDidMount () {
-    this.props.gistGetAddress(this.props.location.pathname)
-    this.props.ipfsFetch(
-      this.props.ipfs &&
-      this.props.ipfs.data &&
-      this.props.ipfs.data.address
-    )
+  async componentDidMount () {
+    await this.props.gistGetAddress(this.props.location.pathname)
   }
 
   render () {
-    const data =
-      this.props &&
-      this.props.ipfs &&
-      this.props.ipfs.data
+    const { ipfs, ipfsSetup, ipfsFetch } = this.props
+    const data = ipfs && ipfs.data
     const componentReady = Boolean(data)
+
+    if (!componentReady) return false
+
     const gist = data && data.address
-    const code = (data && data.code)
+    const code = data && data.code
+
+    gist === '' && ipfsSetup()
+    gist !== '' && ipfsFetch(gist)
 
     return (
       <ErrorBoundary reason={errors.others}>

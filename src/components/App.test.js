@@ -8,12 +8,14 @@ const props = {
       pathname: '/test-path'
     },
     gistGetAddress: jest.fn(),
-    ipfsFetch: jest.fn()
+    ipfsFetch: jest.fn(),
+    ipfsSetup: jest.fn()
   },
   wrong: {
     location: '',
     gistGetAddress: jest.fn(),
-    ipfsFetch: jest.fn()
+    ipfsFetch: jest.fn(),
+    ipfsSetup: jest.fn()
   }
 }
 

@@ -15,7 +15,7 @@ const Header = ({ gist: header = 'new', code, saver }) => {
 }
 
 Header.propTypes = {
-  gist: PropTypes.string.isRequired,
+  gist: PropTypes.string,
   code: PropTypes.string,
   saver: PropTypes.func.isRequired
 }

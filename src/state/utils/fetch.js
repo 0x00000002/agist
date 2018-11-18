@@ -11,7 +11,7 @@ export const jsonParse = x => {
 export default (url, method, body, _headers) => {
   const headers = {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
+    // 'Content-Type': 'application/json',
     ..._headers
   }
   const options = {
@@ -19,7 +19,6 @@ export default (url, method, body, _headers) => {
     headers,
     body: method !== 'GET' ? JSON.stringify(body) : null
   }
-
   return isomorphicFetch(url, options).then(res =>
     parseStatus(res.status, res.text()))
 }

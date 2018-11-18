@@ -11,39 +11,34 @@ export const ipfsFetch = (address) => ({
   meta: {
     async: true,
     blocking: true,
-    path: '/ipfs',
+    path: '/api/v0/get',
     method: 'GET',
-    body: { address }
+    body: { arg:address }
   }
 })
 
-export const ipfsSetup = (address) => ({
+export const ipfsSetup = () => ({
   type: types.IPFS_SETUP,
   meta: {
     async: true,
     blocking: true,
-    path: '/ipfs/setup',
-    method: 'PUT',
-    body: { address }
+    path: '/api/v0/version',
+    method: 'GET'
   }
 })
 
-export const ipfsUpdate = (address, code) => ({
+export const ipfsUpdate = (code) => ({
   type: types.IPFS_UPDATE,
   meta: {
     async: true,
     blocking: true,
-    path: '/ipfs/update',
-    method: 'PUT',
-    body: { address, code }
+    path: '/api/v0/add',
+    method: 'POST',
+    body: { arg: code }
   }
 })
 
 export const gistGetAddress = (path) => async dispatch => {
-  dispatch({
-    type: types.IPFS_GETADDRESS
-  })
-
   const address = gistAddress(path)
 
   dispatch({

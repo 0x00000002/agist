@@ -20,7 +20,7 @@ describe('ipfs.actions', function () {
         meta: {
           async: true,
           blocking: true,
-          path: '/ipfs',
+          path: '/data/testAuthentication',
           method: 'GET',
           body: { address: 'fake-address' }
         }
@@ -30,16 +30,13 @@ describe('ipfs.actions', function () {
 
   describe('ipfsSetup', function () {
     it('should return a IPFS_FETCH action', function () {
-      expect(actions.ipfsSetup('fake-ipfs-token')).toEqual({
+      expect(actions.ipfsSetup()).toEqual({
         type: types.IPFS_SETUP,
         meta: {
           async: true,
           blocking: true,
-          path: '/ipfs/setup',
-          method: 'PUT',
-          body: {
-            'address': 'fake-ipfs-token'
-          }
+          path: '/data/testAuthentication',
+          method: 'GET'
         }
       })
     })
@@ -52,8 +49,8 @@ describe('ipfs.actions', function () {
         meta: {
           async: true,
           blocking: true,
-          path: '/ipfs/update',
-          method: 'PUT',
+          path: '/pinning/pinFileToIPFS',
+          method: 'POST',
           body: {
             'address': 'fake-address',
             'code': 'fake-code'

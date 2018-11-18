@@ -59,7 +59,9 @@ describe('fetch', function () {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          header: 'fake'
+          header: 'fake',
+          'pinata_api_key': process.env.REACT_APP_PINATA_API_KEY,
+          'pinata_secret_api_key': process.env.REACT_APP_PINATA_SECRET,
         },
         body: null
       }

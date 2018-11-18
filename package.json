@@ -11,6 +11,7 @@
   "dependencies": {
     "@material-ui/core": "^3.5.1",
     "@material-ui/icons": "^3.0.1",
+    "ipfs-redux-bundle": "^4.1.2",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "latest",
     "ramda": "^0.25.0",
@@ -23,6 +24,7 @@
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
     "redux-bundler": "^22.2.0",
+    "redux-bundler-react": "^1.1.0",
     "redux-thunk": "^2.3.0",
     "sanctuary": "^0.15.0"
   },
