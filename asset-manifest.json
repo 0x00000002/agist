@@ -1,7 +1,7 @@
 {
   "main.css": "/agist/static/css/main.b14b2e30.chunk.css",
-  "main.js": "/agist/static/js/main.a597862b.chunk.js",
-  "main.js.map": "/agist/static/js/main.a597862b.chunk.js.map",
+  "main.js": "/agist/static/js/main.8d279ad3.chunk.js",
+  "main.js.map": "/agist/static/js/main.8d279ad3.chunk.js.map",
   "static/css/1.eca82ba3.chunk.css": "/agist/static/css/1.eca82ba3.chunk.css",
   "static/js/1.fb7d42e1.chunk.js": "/agist/static/js/1.fb7d42e1.chunk.js",
   "static/js/1.fb7d42e1.chunk.js.map": "/agist/static/js/1.fb7d42e1.chunk.js.map",
@@ -10,6 +10,6 @@
   "static/css/1.eca82ba3.chunk.css.map": "/agist/static/css/1.eca82ba3.chunk.css.map",
   "static/css/main.b14b2e30.chunk.css.map": "/agist/static/css/main.b14b2e30.chunk.css.map",
   "index.html": "/agist/index.html",
-  "precache-manifest.a9e18cc2af61522072776979eded1d44.js": "/agist/precache-manifest.a9e18cc2af61522072776979eded1d44.js",
+  "precache-manifest.069d613b93b77f1c31275066cea3c8cf.js": "/agist/precache-manifest.069d613b93b77f1c31275066cea3c8cf.js",
   "service-worker.js": "/agist/service-worker.js"
 }
