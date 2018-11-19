@@ -20,9 +20,8 @@ describe('ipfs.actions', function () {
         meta: {
           async: true,
           blocking: true,
-          path: '/api/v0/get',
-          method: 'GET',
-          body: { arg: 'fake-address' }
+          path: '/api/v0/get?arg=fake-address',
+          method: 'GET'
         }
       })
     })
