@@ -13,16 +13,19 @@ const apiService = () => next => action => {
   }
 
   // ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
-  const url = `http://127.0.0.1:5001${path}`
+  // const url = `http://127.0.0.1:5001${path}`
+  const url = `https://ipfs.infura.io:5001${path}`
 
   const headers = {
     Authorization: auth
   }
 
-  return fetch(url, method, body, headers).then(
+  const fetchResult = fetch(url, method, body, headers).then(
     res => handleResponse(res, action, next),
     err => handleErrors(err, action, next)
   )
+  console.log(fetchResult)
+  return fetchResult
 }
 
 export default apiService
@@ -38,6 +41,7 @@ function handleErrors (err, action, next) {
 }
 
 function handleResponse (res, action, next) {
+  console.log(`Res: ${res}\nAction: ${Object.entries(action)}\nNext: ${next}`)
   next({
     type: `${action.type}_COMPLETED`,
     payload: res,

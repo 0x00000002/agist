@@ -31,7 +31,7 @@ describe('ipfs.reducers', function () {
         createReducer.mock.calls[0][1]['IPFS_FETCH_COMPLETED']({}, {
           payload: 'fake-payload'
         })
-      ).toEqual('fake-payload')
+      ).toEqual({ payload: 'fake-payload' })
     })
     it('should support IPFS_SETUP_COMPLETED', function () {
       expect(

@@ -48,11 +48,8 @@ describe('ipfs.actions', function () {
         meta: {
           async: true,
           blocking: true,
-          path: '/api/v0/add',
-          method: 'POST',
-          body: {
-            'arg': 'fake-address',
-          }
+          path: '/api/v0/add?arg=fake-address',
+          method: 'POST'
         }
       })
     })
