@@ -11,7 +11,7 @@ export const ipfsFetch = (address) => ({
   meta: {
     async: true,
     blocking: true,
-    path: `/api/v0/get?arg=${address}`,
+    path: `/api/v0/cat?arg=${address}`,
     method: 'GET'
   }
 })

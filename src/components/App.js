@@ -3,6 +3,7 @@ import Code from './Code'
 import Header from './Header'
 import ErrorBoundary from '../helpers/errorBoundary'
 import errors from '../helpers/errorHandling'
+const IPFS = require('nano-ipfs-store')
 
 class App extends Component {
   saveFunc = () => this.props.ipfsUpdate(this.state.code)
@@ -10,6 +11,9 @@ class App extends Component {
 
   async componentDidMount () {
     await this.props.gistGetAddress(this.props.location.pathname)
+    const ipfs = IPFS.at('https://ipfs.infura.io:5001')
+    const cid1 = await ipfs.add("hello world")
+    console.log(cid1)
   }
 
   render () {
