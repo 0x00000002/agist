@@ -24,7 +24,6 @@ const apiService = () => next => action => {
     res => handleResponse(res, action, next),
     err => handleErrors(err, action, next)
   )
-  console.log(fetchResult)
   return fetchResult
 }
 
@@ -41,7 +40,6 @@ function handleErrors (err, action, next) {
 }
 
 function handleResponse (res, action, next) {
-  console.log(`Res: ${res}\nAction: ${Object.entries(action)}\nNext: ${next}`)
   next({
     type: `${action.type}_COMPLETED`,
     payload: res,

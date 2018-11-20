@@ -27,7 +27,7 @@ export const parseStatus = (status, res) => {
   return new Promise((resolve, reject) => {
     if (status >= 200 && status < 300) {
       res.then(response => {
-        resolve(jsonParse(response))
+        resolve(response)
       })
     } else {
       res.then(response => reject(new Error(`${status}: ${response}`)))
