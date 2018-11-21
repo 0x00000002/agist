@@ -6,7 +6,7 @@ const apiService = () => next => action => {
     return result
   }
 
-  const { path, method = 'GET', body, auth } = action.meta
+  const { path, method = 'GET', body } = action.meta
 
   if (!path) {
     throw new Error(`'path' not specified for async action ${action.type}`)
@@ -16,11 +16,7 @@ const apiService = () => next => action => {
   // const url = `http://127.0.0.1:5001${path}`
   const url = `https://ipfs.infura.io:5001${path}`
 
-  const headers = {
-    Authorization: auth
-  }
-
-  const fetchResult = fetch(url, method, body, headers).then(
+  const fetchResult = fetch(url, method, body).then(
     res => handleResponse(res, action, next),
     err => handleErrors(err, action, next)
   )
