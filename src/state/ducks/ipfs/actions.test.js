@@ -1,8 +1,11 @@
 'use strict'
-
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
 import * as actions from './actions'
 import * as types from './types'
-import { gistAddress } from './actions'
+
+const middlewares = [thunk]
+const mockStore = configureMockStore(middlewares)
 
 describe('ipfs.actions', function () {
   it('should export functions', function () {
@@ -50,30 +53,38 @@ describe('ipfs.actions', function () {
 
   describe('ipfsUpdate', function () {
     it('should return an IPFS_UPDATE action', function () {
-      const res = actions.ipfsUpdate('fake-address', 'fake-code')
-      expect(res).toEqual({
+      const store = mockStore({ code: 'fake-code' })
+      const expectedAction = {
         type: types.IPFS_UPDATE_COMPLETED,
         payload: {
           address: 'fake-address',
           code: 'fake-code'
         }
-      })
+      }
+      store.dispatch(actions.ipfsUpdate('fake-code'))
+        .then(() =>
+          expect(store.getActions()).toEqual(expectedAction)
+        )
     })
   })
 
   describe('gistGetAddress', function () {
     it('should parse path correctly', function () {
-      expect(gistAddress('/fake-path')).toEqual('fake-path')
+      expect(actions.gistAddress('/fake-path')).toEqual('fake-path')
     })
 
-    it('should return an IPFS_GETADDRESS_COMPLETED action', function () {
-      const res = actions.gistGetAddress('/fake-address')
-      expect(res).toEqual({
+    it('should return address', function () {
+      const store = mockStore({ code: 'fake-code' })
+      const expectedAction = {
         type: types.IPFS_GETADDRESS_COMPLETED,
         payload: {
           address: 'fake-address'
         }
-      })
+      }
+      store.dispatch(actions.gistGetAddress('/fake-address'))
+        .then(() =>
+          expect(store.getActions()).toEqual(expectedAction)
+        )
     })
   })
 })
