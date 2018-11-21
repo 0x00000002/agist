@@ -9,24 +9,51 @@ const props = {
     },
     gistGetAddress: jest.fn(),
     ipfsFetch: jest.fn(),
-    ipfsSetup: jest.fn()
+    ipfsSetup: jest.fn(),
+    ipfs: {
+      data: {
+        address: 'fake-address',
+        code: 'fake-code'
+      }
+    }
   },
   wrong: {
     location: '',
     gistGetAddress: jest.fn(),
     ipfsFetch: jest.fn(),
-    ipfsSetup: jest.fn()
+    ipfsSetup: jest.fn(),
+    ipfs: {
+      data: {
+        address: 'fake-address',
+        code: null
+      }
+    }
   }
 }
 
-describe('components/Dashboard', function () {
-  it('should ...', async function () {
-    const wrapper = mount(<App {...props.correct} />)
-    expect(0).toBe(0)
+let wrapper
+
+describe('components/App', function () {
+  it('should display Loading... on empty props', async function () {
+    wrapper = mount(<App {...props.wrong} />)
+    expect(wrapper.text()).toEqual('Loading gist, please wait ...')
   })
 
-  it('should ...', async function () {
-    const wrapper = mount(<App {...props.wrong} />)
-    expect(0).toBe(0)
+  beforeEach(() => {
+    wrapper = mount(<App {...props.correct} />)
+  })
+
+  it('should call gistGetAddress', async function () {
+    expect(props.correct.gistGetAddress).toBeCalled()
+  })
+
+  it('should fetch', async function () {
+    expect(props.correct.gistGetAddress).toBeCalled()
+    expect(props.correct.ipfsFetch).toBeCalled()
+  })
+
+  it('handleChange should set state', async function () {
+    wrapper.instance().handleChange('fake-code')
+    expect(wrapper.state().code).toEqual('fake-code')
   })
 })

@@ -8,6 +8,7 @@ class App extends Component {
   state = {
     code: this.props.ipfs && this.props.ipfs.data && this.props.ipfs.data.code
   }
+
   handleChange = (code) => this.setState({ code })
 
   async componentDidMount () {
