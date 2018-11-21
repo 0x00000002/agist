@@ -6,15 +6,22 @@ const R = require('ramda')
 const getFirstSegment = R.compose(R.nth(1), R.split('/'))
 const gistAddress = path => getFirstSegment(path)
 
-export const ipfsFetch = (address) => ({
-  type: types.IPFS_FETCH,
-  meta: {
-    async: true,
-    blocking: true,
-    path: `/api/v0/cat?arg=${address}`,
-    method: 'GET'
+export const ipfsFetch = (address) => {
+  if (!address) {
+    return {
+      type: `${types.IPFS_FETCH}_COMPLETED`,
+    }
   }
-})
+  return {
+    type: types.IPFS_FETCH,
+    meta: {
+      async: true,
+      blocking: true,
+      path: `/api/v0/cat?arg=${address}`,
+      method: 'GET'
+    }
+  }
+}
 
 export const ipfsSetup = () => ({
   type: types.IPFS_SETUP,
@@ -41,8 +48,6 @@ export const gistGetAddress = (path) => async dispatch => {
 
   dispatch({
     type: types.IPFS_GETADDRESS_COMPLETED,
-    payload: {
-      address
-    }
+    payload: { address }
   })
 }

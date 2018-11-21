@@ -13,7 +13,7 @@ const options = {
   mode: 'javascript'
 }
 
-const Code = ({ code = '/* ES5 highlighting only */', handler }) => {
+const Code = ({ code, handler }) => {
   return (
     <ErrorBoundary reason={errors.codeMirror}>
       <CodeMirror
