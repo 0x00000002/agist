@@ -23,7 +23,7 @@ describe('parseStatus', function () {
         Promise.resolve('{"fake":"response"}')
       )
 
-      expect(result).toEqual({ fake: 'response' })
+      expect(JSON.parse(result)).toEqual({ fake: 'response' })
     }
   )
 
@@ -66,7 +66,7 @@ describe('fetch', function () {
         body: null
       }
     ])
-    expect(result).toEqual({ fake: 'response' })
+    expect(JSON.parse(result)).toEqual({ fake: 'response' })
   })
 
   it('should handle POST', async function () {

@@ -26,7 +26,8 @@ const Code = ({ code, handler }) => {
 }
 
 Code.propTypes = {
-  code: PropTypes.string
+  code: PropTypes.string,
+  handler: PropTypes.func.isRequired
 }
 
 export default Code
