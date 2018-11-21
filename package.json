@@ -2,6 +2,7 @@
   "name": "agist",
   "description": "My version of Gist in Javascript with IPFS",
   "main": "index.js",
+  "version": "0.1.0",
   "author": "Alex Tikonoff",
   "homepage": "https://tikonoff.github.io/agist",
   "license": "MIT",
