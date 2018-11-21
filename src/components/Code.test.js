@@ -9,7 +9,7 @@ const testProps = {
 }
 
 describe('components/Code', function () {
-  it('should contain gist name', async function () {
+  it('should call handler', async function () {
     const wrapper = shallow(<Code {...testProps} />)
     expect(wrapper.find(CodeMirror).exists()).toEqual(true)
     wrapper.find(CodeMirror).simulate('change')

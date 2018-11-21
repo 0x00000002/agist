@@ -18,13 +18,13 @@ class App extends Component {
 
   render () {
     const { ipfs: { data: { code, address } } } = this.props
-
+    
     return (
       <ErrorBoundary reason={errors.others}>
         { !code && <span className={'loading'}>Loading gist, please wait ...</span> }
         { code &&
           <div>
-            <Header address={address} code={this.state.code} updater={this.props.ipfsUpdate} />
+            <Header address={address} code={code} updater={this.props.ipfsUpdate} />
             <Code code={code} handler={this.handleChange} />
           </div>
         }
