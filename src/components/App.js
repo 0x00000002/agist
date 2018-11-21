@@ -14,6 +14,7 @@ class App extends Component {
   async componentDidMount () {
     await this.props.gistGetAddress(this.props.location.pathname)
     await this.props.ipfsFetch(this.props.ipfs.data.address)
+    this.setState({ code: this.props.ipfs.data.code })
   }
 
   render () {
@@ -24,7 +25,7 @@ class App extends Component {
         { !code && <span className={'loading'}>Loading gist, please wait ...</span> }
         { code &&
           <div>
-            <Header address={address} code={code} updater={this.props.ipfsUpdate} />
+            <Header address={address} code={this.state.code} updater={this.props.ipfsUpdate} />
             <Code code={code} handler={this.handleChange} />
           </div>
         }
