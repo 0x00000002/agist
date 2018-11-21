@@ -18,7 +18,7 @@ class App extends Component {
 
   render () {
     const { ipfs: { data: { code, address } } } = this.props
-    
+
     return (
       <ErrorBoundary reason={errors.others}>
         { !code && <span className={'loading'}>Loading gist, please wait ...</span> }
