@@ -19,10 +19,11 @@ h1 {
   color: #fff;
 }
 
-.gistName {
+.status {
   font-weight: 100;
   color: #999;
   font-style: italic;
+  font-size: 1.6rem;
 }
 
 section {
@@ -64,11 +65,17 @@ button {
   border-radius: 5px;
   font-family: 'Ubuntu Mono', monospace;
   font-size: 1.2rem;
-  padding: 10px 40px;
+  width: 150px;
 }
 
 button:hover {
   color: #234;
   border: 1px solid #fff;
   background-color: #fff;
+}
+
+button:disabled {
+  color: #234;
+  border: 1px solid #567;
+  background-color: #567;
 }

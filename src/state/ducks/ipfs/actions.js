@@ -1,5 +1,6 @@
 import * as types from './types'
 const R = require('ramda')
+const IPFS = require('nano-ipfs-store')
 
 // we need the second element, because:
 // element 0 is empty after split ('/URI')
@@ -9,7 +10,7 @@ const gistAddress = path => getFirstSegment(path)
 export const ipfsFetch = (address) => {
   if (!address) {
     return {
-      type: `${types.IPFS_FETCH}_COMPLETED`,
+      type: `${types.IPFS_FETCH}_COMPLETED`
     }
   }
   return {
@@ -33,15 +34,18 @@ export const ipfsSetup = () => ({
   }
 })
 
-export const ipfsUpdate = (code) => ({
-  type: types.IPFS_UPDATE,
-  meta: {
-    async: true,
-    blocking: true,
-    path: `/api/v0/add?arg=${code}`,
-    method: 'POST'
-  }
-})
+export const ipfsUpdate = (code) => async dispatch => {
+  const ipfs = IPFS.at('https://ipfs.infura.io:5001')
+  const address = await ipfs.add(code)
+
+  dispatch({
+    type: types.IPFS_UPDATE_COMPLETED,
+    payload: {
+      address,
+      code
+    }
+  })
+}
 
 export const gistGetAddress = (path) => async dispatch => {
   const address = gistAddress(path)
