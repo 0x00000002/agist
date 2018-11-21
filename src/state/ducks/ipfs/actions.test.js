@@ -53,14 +53,14 @@ describe('ipfs.actions', function () {
 
   describe('ipfsUpdate', function () {
     it('should return an IPFS_UPDATE action', function () {
-      const store = mockStore({ code: 'fake-code' })
-      const expectedAction = {
+      const store = mockStore({ code: 'fake-code', address: 'fake-address' })
+      const expectedAction = [{
         type: types.IPFS_UPDATE_COMPLETED,
         payload: {
-          address: 'fake-address',
+          address: 'zb2rhkeCWu5N5z2qP4JtYeeZ9qrSzfghWq96LcUCLPtJHEcRN',
           code: 'fake-code'
         }
-      }
+      }]
       store.dispatch(actions.ipfsUpdate('fake-code'))
         .then(() =>
           expect(store.getActions()).toEqual(expectedAction)

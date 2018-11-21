@@ -32,7 +32,7 @@ class Header extends Component {
 Header.propTypes = {
   address: PropTypes.string.isRequired,
   code: PropTypes.string,
-  updater: PropTypes.func.isRequired
+  updater: PropTypes.func
 }
 
 export default Header
