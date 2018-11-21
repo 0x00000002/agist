@@ -3,34 +3,29 @@ import Code from './Code'
 import Header from './Header'
 import ErrorBoundary from '../helpers/errorBoundary'
 import errors from '../helpers/errorHandling'
-const IPFS = require('nano-ipfs-store')
 
 class App extends Component {
-  saveFunc = async () => {
-    const ipfs = IPFS.at('https://ipfs.infura.io:5001')
-    const cid1 = await ipfs.add(this.state.code)
-    alert(cid1)
-    // this.props.ipfsUpdate(this.state.code)
+  state = {
+    code: this.props.ipfs && this.props.ipfs.data && this.props.ipfs.data.code
   }
+
   handleChange = (code) => this.setState({ code })
 
   async componentDidMount () {
     await this.props.gistGetAddress(this.props.location.pathname)
     await this.props.ipfsFetch(this.props.ipfs.data.address)
-
+    this.setState({ code: this.props.ipfs.data.code })
   }
 
   render () {
-    const { ipfs: { data } } = this.props
-    const address = data && data.address
-    const code = data && data.code
+    const { ipfs: { data: { code, address } } } = this.props
 
     return (
       <ErrorBoundary reason={errors.others}>
-        { !code && <span className={'loading'}>Loading data, please wait ...</span> }
+        { !code && <span className={'loading'}>Loading gist, please wait ...</span> }
         { code &&
           <div>
-            <Header address={address} code={code} saver={this.saveFunc} />
+            <Header address={address} code={this.state.code} updater={this.props.ipfsUpdate} />
             <Code code={code} handler={this.handleChange} />
           </div>
         }

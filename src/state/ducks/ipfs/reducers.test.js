@@ -17,7 +17,7 @@ describe('ipfs.reducers', function () {
   describe('ipfsReducer', function () {
     it('should call createReducer with correct args', function () {
       expect(ipfsReducer).toEqual('fake-reducer')
-      expect(createReducer.mock.calls[0][0]).toEqual(null)
+      expect(createReducer.mock.calls[0][0]).toEqual({})
       expect(Object.keys(createReducer.mock.calls[0][1])).toEqual([
         'IPFS_FETCH_COMPLETED',
         'IPFS_SETUP_COMPLETED',
@@ -31,7 +31,7 @@ describe('ipfs.reducers', function () {
         createReducer.mock.calls[0][1]['IPFS_FETCH_COMPLETED']({}, {
           payload: 'fake-payload'
         })
-      ).toEqual({ payload: 'fake-payload' })
+      ).toEqual({ address: 'new', code: 'fake-payload' })
     })
     it('should support IPFS_SETUP_COMPLETED', function () {
       expect(
