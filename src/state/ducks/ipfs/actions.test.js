@@ -63,7 +63,7 @@ describe('ipfs.actions', function () {
       }]
       store.dispatch(actions.ipfsUpdate('fake-code'))
         .then(() =>
-          expect(store.getActions()).toEqual(expectedAction)
+          expect(store.getActions().resolve()).toEqual(expectedAction)
         )
     })
   })

@@ -1,32 +1,29 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import errors from '../helpers/errorHandling'
 import ErrorBoundary from '../helpers/errorBoundary'
 
-class Header extends Component {
-  state = {
-    button: 'Save',
-    isDisabled: false
+export default function Header ({ address, code, updater: save }) {
+  const [buttonStatus, setButtonStatus] = useState(false)
+  const [buttonName, setButtonName] = useState('Save')
+  const saveCode = async () => {
+    setButtonStatus(true)
+    setButtonName('Saving...')
+    await save(code)
+    setButtonName('Save')
+    setButtonStatus(false)
   }
 
-  async saveCode () {
-    this.setState({ button: ' saving', isDisabled: true })
-    await this.props.updater(this.props.code)
-    this.setState({ button: 'Save', isDisabled: false })
-  }
-
-  render () {
-    return (
-      <ErrorBoundary reason={errors.header}>
-        <h1>Gist <span className={'status'}>{this.props.address}</span></h1>
-        <button
-          onClick={(e) => this.saveCode()}
-          disabled={this.state.isDisabled}
-        >{this.state.button}
-        </button>
-      </ErrorBoundary>
-    )
-  }
+  return (
+    <ErrorBoundary reason={errors.header}>
+      <h1>Gist <span className={'status'}>{address}</span></h1>
+      <button
+        onClick={() => saveCode()}
+        disabled={buttonStatus}
+      >{buttonName}
+      </button>
+    </ErrorBoundary>
+  )
 }
 
 Header.propTypes = {
@@ -34,5 +31,3 @@ Header.propTypes = {
   code: PropTypes.string,
   updater: PropTypes.func
 }
-
-export default Header

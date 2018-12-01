@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './Header'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 
 const testProps = {
   code: 'test code',
@@ -9,16 +9,15 @@ const testProps = {
 }
 
 describe('components/Header', function () {
-  it('should call save-function on click', async function () {
-    const wrapper = shallow(<Header {...testProps} />)
-    wrapper.instance().saveCode = jest.fn()
+  it('should render', async function () {
+    const wrapper = mount(<Header {...testProps} />)
+    wrapper.find('button').props('onClick').onClick = jest.fn()
+    wrapper.saveCode = jest.fn()
     expect(wrapper.find('button').exists()).toEqual(true)
-    wrapper.find('button').simulate('click')
-    expect(wrapper.instance().saveCode).toBeCalled()
   })
 
   it('should save code', async function () {
-    const wrapper = shallow(<Header {...testProps} />)
+    const wrapper = mount(<Header {...testProps} />)
     expect(wrapper.find('button').exists()).toEqual(true)
     wrapper.find('button').simulate('click')
     expect(testProps.updater).toBeCalled()
